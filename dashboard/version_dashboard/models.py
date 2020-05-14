@@ -20,4 +20,4 @@ class ServiceVersion(models.Model):
     release_version = models.ForeignKey(ReleaseVersion, on_delete=models.CASCADE)
     service_version = models.CharField(max_length=6)
     def __str__(self):
-        return self.service_version
+        return "%s %s" %(self.component ,self.service_version)
