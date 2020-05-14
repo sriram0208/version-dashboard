@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url(../static/images/retail-logo.png);">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+<!--        <div class="navbar-header">-->
+<!--            <a class="navbar-brand" href="#" style="background-color:green;border-radius:5px"><span style="color:white;">NCR</span></a>-->
+<!--        </div>-->
+        <ul class="nav navbar-nav">
+          <li class="active"  style="border-color:green;width:150px;"><a href="/versions"><span style="font-weight: bold;font-size: 20px;">Home</span></a></li>
+           {% for env_type in environment_types_list %}
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="width:100px">{{ env_type }}<span class="caret"></span></a>
+                <ul class="dropdown-menu" style="border-radius:5px;">
+                    {% for environment in environments_list %}
+                        {% if environment.environment_type == env_type %}
+<!--                            <li><a href="#">{{ environment.environment_name }}</a></li>-->
+                    <li ><a href="{% url 'detail' environment.environment_name %}"><button class="btn btn-sm btn-outline-secondary" type="button" style="width:250px;background-color:#32CD32;"><span style="color:#FFFAFA;font-weight: bold;font-family:Courier New;font-size:20px">{{ environment.environment_name }}</span></button></a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+              </li>
+            {% endfor%}
+            <li class="active"><a href="#" style="width:400px;float:right;background-color:#FFFFF0;border-radius:5px"><span style="color:black;font-family:Georgia, serif;font-weight: bold;font-size: 20px;">AMS Environments Dashboard</span></a></li>
+            <li class="active"  style="width:150px;"><a href="/admin" style="float:right;background-color:;border-radius:5px;">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+
+    </div>
+</body>
+</html>
