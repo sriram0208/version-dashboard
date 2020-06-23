@@ -13,6 +13,7 @@ class Environments(models.Model):
         OTHERS = 'OTHERS'
     environment_name = models.CharField(max_length=50,null=False,primary_key=True)
     environment_type = models.CharField(max_length=10,choices=EnvironmentType.choices,blank=True)
+    deployed_artifact_version = models.CharField(max_length=20,blank=True)
 
     def __str__(self):
         return self.environment_name
@@ -34,11 +35,15 @@ class Services(models.Model):
         PES = "PES"
         IOSever = "IO_SERVER"
         PDU ="PDU"
+        SecurityService = "SECURITY_SERVICE"
+        LogMonitoring = "LOG_MONITORING"
+        Preferences = "CONSUMER_PREFERENCES"
+        Health = "HEALTH_SERVICE"
     environment = models.ForeignKey(Environments, on_delete=models.CASCADE)
     service_name = models.CharField(max_length=30,choices=ServiceName.choices)
-    ip_address = models.GenericIPAddressField(null=True,blank=True)
+    ip_address = models.CharField(max_length=20,null=True,blank=True)
     health_endpoint = models.CharField(max_length=200,blank=True)
-    additional_details = models.TextField(max_length=1000,blank=True)
+    service_version = models.CharField(max_length=20,blank=True)
 
     class Meta:
         unique_together = ('environment', 'service_name')

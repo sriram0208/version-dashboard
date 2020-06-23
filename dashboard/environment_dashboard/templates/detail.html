@@ -44,27 +44,33 @@ th, td {
         </ul>
       </div>
     </nav>
-    <div class="container" style="padding-left:20px;float:left">
-           <table class="table table-sm table-dark table-hover" style="">
-        <thead style="background-color:#87CEFA;">
-          <tr>
-              <th scope="col" style="border-bottom: 3px solid black;">Service</th>
-              <th scope="col" style="border-bottom: 3px solid black;">IP-Address(Port)</th>
-              <th scope="col" style="border-bottom: 3px solid black;">Health endpoint</th>
-              <th scope="col" style="border-bottom: 3px solid black;">Additional details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for service in environment.services_set.all %}
-          <tr>
-            <th scope="row" style="border-bottom: 3px solid black;">{{ service.service_name }}</th>
-              <td style="border-bottom: 3px solid black;">{{ service.ip_address }}</td>
-              <td style="border-bottom: 3px solid black;"><a href="{{ service.health_endpoint }}">{{ service.health_endpoint }}</a></td>
-              <td style="border-bottom: 3px solid black;">{{ service.additional_details }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    <div class="container" style="padding-left:20px;padding-top:50px;float:left">
+        <div style="float:left;position:fixed;top:10%;">
+            <label style="background-color:#228B22;width:300px;height:50px;border-radius:5px;"><span style="color:white;font-family:Georgia, serif;font-weight: bold;padding:10%;font-size: 25px;">{{ environment.environment_name }}</span></label>
+        </div>
+        <div style="float:right;position:fixed;top:10%;right:10%;">
+            <label style="background-color:#228B22;width:150px;height:50px;border-radius:5px;"><span style="color:white;font-family:Georgia, serif;font-weight: bold;padding:10%;font-size: 25px;">{{ environment.deployed_artifact_version }}</span></label>
+        </div>
+            <table class="table table-sm table-dark table-hover" style="">
+            <thead style="background-color:#87CEFA;">
+              <tr>
+                  <th scope="col" style="border-bottom: 3px solid black;">Service</th>
+                  <th scope="col" style="border-bottom: 3px solid black;">Health endpoint</th>
+                  <th scope="col" style="border-bottom: 3px solid black;">IP-Address(Port)</th>
+                  <th scope="col" style="border-bottom: 3px solid black;">Version</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for service in environment.services_set.all %}
+              <tr>
+                <th scope="row" style="border-bottom: 3px solid black;">{{ service.service_name }}</th>
+                  <td style="border-bottom: 3px solid black;"><a href="{{ service.health_endpoint }}">{{ service.health_endpoint }}</a></td>
+                  <td style="border-bottom: 3px solid black;">{{ service.ip_address }}</td>
+                  <td style="border-bottom: 3px solid black;">{{ service.service_version }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
     </div>
 
 </body>

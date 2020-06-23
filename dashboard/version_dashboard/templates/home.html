@@ -21,7 +21,11 @@
           <tr>
             <th scope="col">Component</th>
             {% for release in release_versions_list %}
-              <th scope="col">{{ release.release_name }}</th>
+              {% if release.branch != "" %}
+                <th scope="col">{{ release.release_name }}/{{ release.branch }}</th>
+              {% else %}
+                <th scope="col">{{ release.release_name }}</th>
+              {% endif %}
             {% endfor %}
           </tr>
         </thead>
@@ -29,8 +33,12 @@
           {% for component in component_list %}
           <tr>
             <th scope="row">{{ component.component_name }}</th>
-            {% for service in component.serviceversion_set.all %}
-              <td>{{ service.service_version }}</td>
+            {% for release in release_versions_list %}
+              {% for service in component.serviceversion_set.all %}
+                  {% if service.release_version == release %}
+                    <td>{{ service.service_version }}</td>
+                  {% endif %}
+              {% endfor %}
             {% endfor %}
           </tr>
           {% endfor %}
