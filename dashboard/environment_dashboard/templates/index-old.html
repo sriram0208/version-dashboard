@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>AMS Environments</h2>
+    <div class="row">
+        <div class="col-sm-4"><a href="#demo" class="btn btn-info" data-toggle="collapse" style="width:250px;">DEV</a>
+           <div id="demo" class="collapse" class="list-group">
+               {% for environment in environments_list %}
+                    <a href="#" class="list-group-item">{{ environment.environment_name}}</a>
+               {% endfor %}
+          </div>
+        </div>
+    </div>
+
+     <div class="row">
+         <div class="col-sm-4"><a href="#demo2" class="btn btn-info" data-toggle="collapse" style="width:250px;">STAG</a>
+           <div id="demo2" class="collapse" class="list-group">
+               {% for environment in environments_list %}
+                    <a href="#" class="list-group-item">{{ environment.environment_name}}</a>
+               {% endfor %}
+          </div>
+         </div>
+     </div>
+    <div class="row">
+         <div class="col-sm-4"><a href="#demo3" class="btn btn-info" data-toggle="collapse" style="width:250px;">PREP</a>
+           <div id="demo3" class="collapse" class="list-group">
+               {% for environment in environments_list %}
+                    <a href="#" class="list-group-item">{{ environment.environment_name}}</a>
+               {% endfor %}
+          </div>
+         </div>
+     </div>
+</div>
+
+</body>
+</html>
