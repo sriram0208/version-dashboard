@@ -8,93 +8,10 @@ from .models import Component, ReleaseVersion, ServiceVersion
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 java_services_pom_urls = {
-        'core-broker-customer': {
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-broker-customer/raw/customer-broker-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-broker-customer/raw/customer-broker-parent/pom.xml?at=master'
-            },
-        'core-broker-promotion':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-broker-promotion/raw/promotion-broker-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-broker-promotion/raw/promotion-broker-parent/pom.xml?at=master'
-        },
-        'core-conexxus-adapter':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-conexxus-adapter/raw/conexxus-adapter-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-conexxus-adapter/raw/conexxus-adapter-parent/pom.xml?at=master'
-        },
-        'core-consumer-preferences':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-consumer-preferences/raw/consumer-preferences-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-consumer-preferences/raw/consumer-preferences-parent/pom.xml?at=master'
-        },
-        'core-coupon-service':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-coupon-service/raw/coupon-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-coupon-service/raw/coupon-parent/pom.xml?at=master'
-        },
-        'core-couponvalidation-enterprise':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-couponvalidation-enterprise/raw/parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-couponvalidation-enterprise/raw/parent/pom.xml?at=master'
-        },
-        'core-couponvalidation-service':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-couponvalidation-service/raw/couponstore-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-couponvalidation-service/raw/couponstore-parent/pom.xml?at=master'
-        },
-        'core-customer-proxy':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-customer-proxy/raw/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-customer-proxy/raw/pom.xml?at=master'
-        },
-        'core-data-sync':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-data-sync/raw/data-sync-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-data-sync/raw/data-sync-parent/pom.xml?at=master'
-        },
-        'core-epp-service':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-epp-service/raw/external-rewards-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-epp-service/raw/external-rewards-parent/pom.xml?at=master'
-        },
-        'core-etl':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-etl/raw/ams-etl-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-etl/raw/ams-etl-parent/pom.xml?at=master'
-        },
-        'core-health-service':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-health-service/raw/health-service-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-health-service/raw/health-service-parent/pom.xml?at=master'
-        },
-        'core-loyalty-service':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-loyalty-service/raw/loyalty-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-loyalty-service/raw/loyalty-parent/pom.xml?at=master'
-        },
-        'core-nr1-adapter':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-nr1-adapter/raw/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-nr1-adapter/raw/pom.xml?at=master'
-        },
-        'core-pdu-wrapper':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-pdu-wrapper/raw/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-pdu-wrapper/raw/pom.xml?at=master'
-        },
-        'core-pes-ue':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-pes-ue/raw/promotion-execution-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-pes-ue/raw/promotion-execution-parent/pom.xml?at=master'
-        },
-        'core-rewards':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-rewards/raw/rewards-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-rewards/raw/rewards-parent/pom.xml?at=master'
-        },
-        'core-ulp-ue':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-ulp-ue/raw/ulp-ue-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-ulp-ue/raw/ulp-ue-parent/pom.xml?at=master'
-        },
-        'core-verifone-adapter':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-verifone-adapter/raw/verifone-adapter-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-verifone-adapter/raw/verifone-adapter-parent/pom.xml?at=master'
-        },
-        'core-ams-security-app': {
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-ams-security-app/raw/nep-core-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-ams-security-app/raw/nep-core-parent/pom.xml?at=master'
-        },
-        'core-broker-common':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-broker-common/raw/broker-common-parent/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-broker-common/raw/broker-common-parent/pom.xml?at=master'
-        },
-        'core-common-java':{
-            'dev': 'https://almgit.ncr.com/projects/AMS/repos/core-common-java/raw/pom.xml?at=develop',
-            'master': 'https://almgit.ncr.com/projects/AMS/repos/core-common-java/raw/pom.xml?at=master'
+       
+        'service':{
+            'dev': '',
+            'master': ''
         }
     }
 
